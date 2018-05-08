@@ -121,7 +121,7 @@
 <script id="template" type="text/x-handlebars-template">
 {{#each collections}}
 <section class="coll-box">
-<img src="{{collection.image_url}}" class="res-img">
+<div style="background: url({{collection.image_url}}) no-repeat center center / cover;" class="res-img"></div>
 <section class="coll-details"><h2  class="coll-name">{{collection.title}}</h2><p class="res-loc">{{collection.description}}</p>
 <div    
 <span class="button"><strong><a href="{{collection.url}}">View More ></strong></a></span>
@@ -149,10 +149,8 @@
       <h4>Contact Developers</h4>
       <p class="footer-contact">Restaurant Finder Portal<br/>
       <p><span class="name">Amit Kumar Thakur</span><br/>
-        <b class="phone">+91-8130845548<br/>
         </b> <b class="mail"><a href="mailto:amkt18@gmail.com">amkt18@gmail.com</a></b></p>
       <p><span class="name">Meenakshi Rawat</span><br/>
-        <b class="phone">+91-8130175469<br/>
         </b> <b class="mail"><a href="mailto:rawatmeenakshi612@gmail.com">rawatmeenakshi612@gmail.com</a></b></p>
       </p>
       </section>
