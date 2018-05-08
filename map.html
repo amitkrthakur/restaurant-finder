@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Map</title>
+<link rel="shortcut icon" type="image/x-icon" href="img/logo/favicon.png" />
+<link rel="stylesheet" href="css/styl.css" />
+<link rel="stylesheet" href="css/animate.css" />
+<link rel="stylesheet" href="css/jquery.bxslider.css" />
+<link rel="stylesheet" href="css/waypoints.css" />
+<link href="css/font-awesome.min.css" rel="stylesheet"/>
+<script type="text/javascript" src="js/click.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+<script type="text/javascript" src="js/jquery.waypoints.min.js" ></script>
+</head>
+
+<body>
+<!--header start here-->
+  <header>
+  <div id="header-inner"> 
+    <div id="logo">
+    <a href="home.html" title="Home"><img src="img/logo/Logo.png" ></a>
+    </div>
+    
+     <nav class="site-nav"> 
+      <ul class="mobile-nav ">
+        <li><a href="home.html" >Home</a></li>
+        <li><a href="restaurant.html">Restaurants</a></li>
+        <li><a href="cuisines.html">Cuisines</a></li>
+        <li><a href="collections.html" title="Collections" >Collections</a></li>
+        <li><a href="map.html" class="current">Map</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+   <div class="menu-toggle">
+    	<div class="hamburger-menu">
+		  <div class="bar"></div>	
+	</div>
+    	
+    	<script type="text/javascript">
+    (function () {
+	$('.hamburger-menu').on('click', function() {
+		$('.bar').toggleClass('animate');
+	})
+})();
+			(function () {
+	$('.menu-toggle').on('click', function() {
+		$('.site-nav ul').toggleClass('open');
+	})
+})();
+        </script>
+    </div>
+  </div>
+</header>
+<!--header ends here-->
+
+<!---- slider--->
+<script type="text/javascript" src="js/jquery.bxslider.min.js" ></script>
+
+<div class="slider-wrap">
+  <section class="slider">
+    <ul class="slider1">
+      <li><img src="img/resturant/1.jpg"></li>
+      <li><img src="img/resturant/2.jpg"></li>
+      <li><img src="img/resturant/3.jpg"></li>
+      <li><img src="img/resturant/4.jpg"></li>
+      <li><img src="img/resturant/5.jpg"></li>
+      <li><img src="img/resturant/6.jpg"></li>
+      <li><img src="img/resturant/7.jpg"></li>
+      <li><img src="img/resturant/8.jpg"></li>
+    </ul>
+  </section>
+</div>
+<!--- ADD IMAGE SLIDER HERE --> 
+
+<script type="text/javascript">
+			$('.slider1').bxSlider({
+				mode: 'fade',
+				captions: false,
+				auto:true,
+				pager:false,
+				
+			});
+			$('.slider2').bxSlider({
+				pager:false,
+				captions: true,
+				maxSlides: 3,
+				minSlides: 1,
+				slideWidth: 230,
+				slideMargin: 10
+			});
+			$('.slider3').bxSlider({
+				mode: 'fade',
+				captions: false,
+				auto:true,
+				pager:false,
+				controls:false,
+			});
+		</script> 
+<!--- End Slider -->
+
+<!-----Body-Content----->
+<div class="bg">
+<div id="inner-wrapper">
+    
+    <section class="staggered-animation-container">
+  
+   <div class="row tagline os-animation animated bounceInUp" data-os-animation="bounceInUp" data-os-animation-delay="2s">
+    <h1>Let's Find You</h1>
+    <p class="cen">Please allow us know where are you</p>
+  </div>
+        <div class="clearfix"></div>
+<div id="map"></div>
+<script>
+  var map, UserLocation, marker, infoWindow;
+      function initMap() {
+        UserLocation = {lat:28.6101839, lng:77.2012427};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: UserLocation
+        });
+          
+        
+        marker = new google.maps.Marker({
+        position: UserLocation,
+        map: map
+        });
+
+        infoWindow= new google.maps.InfoWindow({
+          content:''
+        });
+        
+              
+    }
+      
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    
+    // Try HTML5 geolocation.
+          
+    function getLocation(){
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+                      
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(
+                '<h2>Here you Are..!</h2><br /><p>Now lets find some nearby Restaurants...<br/>just click<strong>Show Nearby Restaurant</strong></p>'           
+            );
+            infoWindow.open(map);
+            map.setCenter(pos);
+              
+            UserLocation = pos;
+              
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+             
+        } 
+        
+        else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+    }
+    
+    
+    
+    //Request Nearby Restaurants
+    
+    function findRestaurants(){
+            
+        infowindow = new google.maps.InfoWindow();
+    
+        var service = new google.maps.places.PlacesService(map);  
+        service.nearbySearch({
+          location: UserLocation,
+          radius: 5000,
+          type: ['restaurant']
+        }, callback);
+        
+        console.log(UserLocation);
+        var details = new google.maps.places.PlacesService(map);
+
+      }
+        
+        
+        
+      
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+            
+        infowindow.setContent('<strong>' + place.name + '</strong>');
+          infowindow.open(map, this);
+        });
+      }
+    </script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYh0EWNezQ5mSZuxaxuOZFgveJIx6CQG8&libraries=places&callback=initMap">
+  </script>
+    
+    
+<div class="clearfix"></div>	
+
+    <div class="map-operations">
+    <button class="btn" onclick="getLocation()">Update Location</button>
+    <button class="btn" onclick="findRestaurants()">Show Nearby Restaurant</button>
+    </div>
+
+
+
+
+
+	</div>	
+<div class="clearfix"></div>
+    
+    
+    </section>
+    
+    
+<!--inner-wrapper end-->
+</div><!--bg---->
+    
+    
+<!---- Footer--->
+<footer>
+  <div id="footer-inner">
+    <section class="footer-third">
+      <h4>Contact Developers</h4>
+      <p class="footer-contact">Restaurant Finder Portal<br/>
+      <p><span class="name">Amit Kumar Thakur</span><br/>
+        <b class="phone">+91-8130845548<br/>
+        </b> <b class="mail"><a href="mailto:amkt18@gmail.com">amkt18@gmail.com</a></b></p>
+      <p><span class="name">Meenakshi Rawat</span><br/>
+        <b class="phone">+91-8130175469<br/>
+        </b> <b class="mail"><a href="mailto:rawatmeenakshi612@gmail.com">rawatmeenakshi612@gmail.com</a></b></p>
+      </p>
+      </section>
+    
+    <section class="footer-third">
+    	<h4>Social Links</h4>
+       	<a href="home.html" title="Go to Home"><img src="img/logo/Logo-light.png" ></a>
+    	<ul class="social">
+    		<li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+    		<li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+    		<li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+    		<li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+    		<li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+    	</ul>
+    </section>
+    
+    <section class="footer-third pages">
+    	<h4>Pages</h4><!--Site-Map-->
+    	<h5><a href="home.html" class="current">Home</a></h5>
+        <h5><a href="restaurant.html">Restaurants</a></h5>
+        <h5><a href="cuisines.html">Cuisines</a></h5>
+        <h5><a href="map.html">Map</a></h5>
+        <h5><a href="about.html">About Us</a></h5>
+    </section>
+    <div class="clearfix"></div>
+  </div>
+</footer>
+
+<!--Copyright-->
+<footer class="footer-second copyright">
+	<p>&copy; Restaurant Finder Portal 2017</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,179 @@
+ <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Restaurant Finder Portal-Home</title>
+<link rel="shortcut icon" type="image/x-icon" href="img/logo/favicon.png" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/styl-bkp.css" />
+<link rel="stylesheet" href="css/animate.css" />
+<link rel="stylesheet" href="css/jquery.bxslider.css" />
+<link rel="stylesheet" href="css/waypoints.css" />
+<link href="css/font-awesome.min.css" rel="stylesheet"/>
+<script type="text/javascript" src="js/click.js"></script>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js" ></script>
+<script type="text/javascript" src="js/jquery.waypoints.min.js" ></script>
+</head>
+  <body>
+  <header>
+  <div id="header-inner"> 
+    <div id="logo">
+    <a href="home.html" title="Home"><img src="img/logo/Logo.png" ></a>
+    </div>
+    
+     <nav class="site-nav"> 
+      <ul>
+        <li><a href="home.html" title="Home" class="current">Home</a></li>
+        <li><a href="restaurant.html" title="Restaurants">Restaurants</a></li>
+        <li><a href="cuisines.html" title="Cuisines">Cuisines</a></li>
+        <li><a href="map.html" title="Map">Map</a></li>
+        <li><a href="about.html" title="About Us">About Us</a></li>
+      </ul>
+    </nav>
+   <div class="menu-toggle">
+    	<div class="hamburger-menu">
+		  <div class="bar"></div>	
+	</div>
+       
+       <script type="text/javascript">
+        (function () {
+	$('.hamburger-menu').on('click', function() {
+		$('.bar').toggleClass('animate');
+	})
+})();
+        </script>
+       
+    </div>
+  </div>
+</header>
+
+<!---- slider--->
+<script type="text/javascript" src="js/jquery.bxslider.min.js" ></script>
+
+<div class="slider-wrap">
+  <section class="slider">
+    <ul class="slider1">
+      <li><img src="img/resturant/1.jpg"></li>
+      <li><img src="img/resturant/2.jpg"></li>
+      <li><img src="img/resturant/3.jpg"></li>
+      <li><img src="img/resturant/4.jpg"></li>
+      <li><img src="img/resturant/5.jpg"></li>
+      <li><img src="img/resturant/6.jpg"></li>
+      <li><img src="img/resturant/7.jpg"></li>
+      <li><img src="img/resturant/8.jpg"></li>
+    </ul>
+  </section>
+</div>
+<!--- ADD IMAGE SLIDER HERE --> 
+
+<script type="text/javascript">
+			$('.slider1').bxSlider({
+				mode: 'fade',
+				captions: false,
+				auto:true,
+				pager:false,
+				
+			});
+			$('.slider2').bxSlider({
+				pager:false,
+				captions: true,
+				maxSlides: 3,
+				minSlides: 1,
+				slideWidth: 230,
+				slideMargin: 10
+			});
+			$('.slider3').bxSlider({
+				mode: 'fade',
+				captions: false,
+				auto:true,
+				pager:false,
+				controls:false,
+			});
+		</script> 
+<!--- End Slider -->
+<!---- slider--->
+<div class="bg">
+<div id="inner-wrapper">
+  
+   <div class="row tagline os-animation animated bounceInUp" data-os-animation="bounceInUp" data-os-animation-delay="2s">
+    <h1>Restaurant Finder Portal</h1>
+    <p class="cen">Find the best restaurants in Delhi NCR</p>
+  </div>
+  
+  
+    <div class="row">
+    <section class="col one-fourth" >
+    <div class="image-container"><a href="cuisines.html" title="cuisine">
+     <img src="img/cuisine/food-prawn-asian.jpg" alt="cuisine"></a>
+     </div>
+      <h3>Cuisine</h3>
+      <p>Cuisine is a collision of ideas, techniques, and cultures. It is not mathematical. It is emotional. It is a food court par excellence, and you'll find any type of cuisine you fancy here.</p>
+    </section>
+    <section class="col one-fourth"> <div class="image-container"><a href="restaurant.html" title="restaurant">
+     <img src="img/resturant/6.jpeg" alt="restaurant"></a></div>
+      <h3>Restaurant</h3>
+      <p>You find here A restaurant where wine and cuisine form an inseparable whole.</p>
+	  </section>
+    <section class="col one-fourth"> <div class="image-container"><a href="map.html" title="map">
+     <img src="img/Map.jpg" alt="map"></a></div>
+      <h3>Map</h3>
+      <p>You might be surprised finding great restaurants, you've never heard of right next to your house. No matter where you are now, just search for places based on your current location.</p>
+    </section>
+    <section class="col one-fourth"> 
+    <div class="image-container"><a href="about.html" title="about">
+     <img src="img/About.jpg" alt="about"></a>
+     </div>
+      <h3>About Us</h3>
+      <p>We are dedicated to providing the highest quality of service on which you can trust.</p>
+	  </section>
+  </div><div class="clearfix"></div>
+</div>
+<!--Inner-wrapper end-->
+</div>
+
+<!--Footer Starts here-->
+<footer>
+  <div id="footer-inner">
+    <section class="footer-third">
+      <h4>Contact Developers</h4>
+      <p class="footer-contact">Restaurant Finder Portal<br/>
+      <p><span class="name">Amit Kumar Thakur</span><br/>
+        <b class="phone">+91-8130845548<br/>
+        </b> <b class="mail"><a href="mailto:amkt18@gmail.com">amkt18@gmail.com</a></b></p>
+      <p><span class="name">Meenakshi Rawat</span><br/>
+        <b class="phone">+91-8130176674<br/>
+        </b> <b class="mail"><a href="mailto:rawatmeenakshi612@gmail.com">rawatmeenakshi612@gmail.com</a></b></p>
+      </p>
+    </section>
+    
+    <section class="footer-third">
+    	<h4>Social Links</h4>
+       	<a href="home.html" title="Go to Home"><img src="img/logo/Logo.png" ></a>
+    	<ul class="social">
+    		<li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+    		<li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+    		<li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+    		<li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+    		<li><a href="#" target="_blank"><i class="fa fa-instagram"></i></a></li>
+    	</ul>
+    </section>
+    
+    <section class="footer-third pages">
+    	<h4>Pages</h4><!--Site-Map-->
+    	<h5><a href="home.html" class="current">Home</a></h5>
+        <h5><a href="restaurant.html">Restaurants</a></h5>
+        <h5><a href="cuisines.html">Cuisines</a></h5>
+        <h5><a href="map.html">Map</a></h5>
+        <h5><a href="about.html">About Us</a></h5>
+    </section>
+    <div class="clearfix"></div>
+  </div>
+</footer>
+
+<!--Copyright-->
+<footer class="footer-second copyright">
+	<p>&copy; Restaurant Finder Portal 2017</p>
+</footer>
+</body>
+</html>

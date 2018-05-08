@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="#">
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <title>Geocodes</title>
+</head>
+<body>
+
+<div id="categories">
+    <h1>Geocodes</h1>
+    
+    <div id="write-data"></div>
+</div>
+<script id="template" type="text/x-handlebars-template">
+<h2>{{location.title}}</h2><h3>({{location.city_name}}, {{location.country_name}})</h3><br/><hr><hr>
+<h2>Nearby Restaurants:- </h2><br/>
+
+{{#each nearby_restaurants}}
+<img src={{restaurant.featured_image}}>
+<h1>{{restaurant.name}}</h1>
+<h3>Cuisines: </h3><p><span class="cuisines">{{restaurant.cuisines}}</span><br/>
+<h3>Location: </h3>
+<p><strong>Address: </strong>{{restaurant.location.address}}.</p>
+<p><strong>City: </strong>{{restaurant.location.city}}.</p>
+<p><strong>Locality: </strong>{{restaurant.location.locality_verbose}}.</p>
+<p><strong>Average Cost for two: </strong>{{restaurant.currency}} {{restaurant.average_cost_for_two}}.</p>
+<p class="button"><strong><a href={{restaurant.menu_url}}>View Menu > </strong></a></p>
+<p class="button"><strong><a href={{restaurant.photos_url}}>View Photos > </strong></a></p>
+<p class="button"><strong><a href={{restaurant.url}}>Know More > </strong></a></p>
+
+
+<hr>
+
+{{/each}}
+<hr>
+<h3>Top Cuisines in {{popularity.city}} : {{popularity.top_cuisines}}</h3>
+<p class="button"><strong><a href={{restaurant.url}}>Find More near {{location.title}} > </strong></a></p>
+<div class="clearfix"></div>
+
+</script>
+
+<script src="js/geocode.js"></script>
+
+<script src="js/handlebars-v4.0.10.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed'); /*--- Headings Font --*/
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans');/*--- Paragraph Font --*/
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700');/*---- some heading----*/
+
+
+html, body{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.clearfix{
+ 	clear:both;
+	padding: 2%;
+}
+*ul{
+    margin: 0;
+    padding:0;
+}
+.welcome{
+	list-style: none;
+	position: absolute;
+	left:50%;
+	top:30%;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.welcome li{
+	display:table-cell;
+	font-family: 'open sans' , arial;
+	padding:15px;
+	color:#ffffff;
+	text-shadow: 2px 2px 4px #000;
+	font-weight: 700;
+	font-size: 30px;
+	transition:all 2s cubic-bezier(.5,-0.09,0,1);
+}
+.welcome li:first-of-type{
+    padding-left:0;
+}
+.welcome li:last-of-type{
+    padding-right: 0;
+}
+.welcome.hidden li{
+	opacity: 0;
+}
+.welcome.hidden li:nth-child(1) {transform:translateX(-100px) translateY(50px);}
+.welcome.hidden li:nth-child(2) {transform:translateX(50px) translateY(-20px);}
+.welcome.hidden li:nth-child(3) {transform:translateX(-30px) translateY(30px);}
+.welcome.hidden li:nth-child(4) {transform:translateX(20px) translateY(50px);}
+.welcome.hidden li:nth-child(5) {transform:translateX(-50px) translateY(-80px);}
+.welcome.hidden li:nth-child(6) {transform:translateX(40px) translateY(60px);}
+.welcome.hidden li:nth-child(7) {transform:translateX(-100px) translateY(-80px);}
+
+.intro{
+	height: 100%;
+	width: 100%;
+	margin: auto;
+	background-image:url(../img/resturant/4.jpg);
+	background-size: cover;
+	display: table;
+	top: 0;
+	
+}
+
+.inner{
+	display: table-cell;
+	vertical-align: middle;
+	width:100%;
+}
+
+.content{
+    max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 2%;
+}
+
+.content h1{
+	font-family: 'Libre Baskerville', serif;
+	font-size: 3em;
+	font-weight: 700;
+	line-height: 107%;
+	color: #fa5757;
+	text-shadow: 1px 1px 3px #000;
+	text-transform:uppercase;
+}
+
+
+.btn{
+    font-size: 135%;
+	font-weight: 400;
+	text-decoration: none;
+	color: #CBDFD6 ;
+	padding: 10px 20px;
+	text-transform: uppercase;
+	border: solid #fa5757;
+	border-radius: 9px;
+	background-color: rgba(205,62,65,1);
+    text-shadow: 2px 2px 7px #000;
+}
+
+.btn:hover{
+	background-color: #fa5757;
+	color: #ffffff;
+	transition: all 0.2s ease;
+	
+}
+
+
+/*--- Media Queries --
+@media screen and (max-width: 900px) {
+	.content{
+		padding-bottom: 30%;
+	}
+	.content h1{
+		font-size: 450%;
+	}
+	.btn{
+		font-size: 130%;
+		padding: 9px 17px;
+	}
+}
+@media screen and (max-width: 768px) {
+    .content{
+		padding-bottom: 40%;
+	}
+	.content h1{
+		font-size: 300%;
+	}
+	.btn{
+		font-size: 110%;
+		padding: 7px 15px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.content{
+		padding-bottom: 50%;
+	}
+	.content h1{
+		font-size: 250%;
+	}
+	.btn{
+		font-size: 110%;
+		padding: 6px 14px;
+	}
+}

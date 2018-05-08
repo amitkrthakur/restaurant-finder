@@ -1,0 +1,5 @@
+https://stackoverflow.com/questions/39436270/android-how-to-get-json-object-from-zomato-api
+
+
+great tool to work with any API
+postman app --chrome-webstore--
