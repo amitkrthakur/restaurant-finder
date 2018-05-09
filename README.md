@@ -32,7 +32,7 @@ This application used Handlebars to generate HTML dynamically as fetched from th
 * [Google Places API](https://cloud.google.com/maps-platform/) - To show the nearby places around the current location on the map accordingly.
 
 ## Contributers
-###Special Thanks to
+### Special Thanks to
 **Meenakshi Rawat**
 -[LinkedIN](https://www.linkedin.com/in/meenakshi-rawat-555921161/)
 
